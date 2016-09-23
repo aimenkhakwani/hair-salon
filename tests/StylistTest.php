@@ -128,7 +128,7 @@
 
         }
 
-        function test_update  ()
+        function test_update()
         {
             //Arrange
             $id = 1;
