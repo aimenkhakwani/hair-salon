@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <title>Hair Salon</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Hair Salon</h1>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Add a new Stylist: </h2>
+                    <form action="/addStylist" method="post">
+                        <input class="form-control" type="text" name="name" placeholder="Name" required>
+                        <br>
+                        <button type="submit" class="btn">Add Stylist!</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    {% if stylists is not empty %}
+                        <h2>Current Stylists: </h2>
+                        {% for stylist in stylists %}
+                            <h4> <a href="#">{{ stylist.getName }}</a></h4>
+                        {% endfor %}
+                        <form action="/deleteStylists" method="post">
+                            <button type="submit" class="btn">Delete ALL Stylists</button>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

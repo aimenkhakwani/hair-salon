@@ -26,7 +26,16 @@
     Request::enableHttpMethodParameterOverride();
 
     $app->get("/", function() use ($app) {
-        return $app['twig']->render('index.html.twig'));
+        return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
     });
+
+    $app->post("/addStylist", function() use ($app) {
+        $id = null;
+        $name = $_POST['name'];
+        $stylist = new Stylist($id, $name);
+        $stylist->save();
+        return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
+    });
+
     return $app;
  ?>
