@@ -43,6 +43,20 @@
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
+        function getClients()
+        {
+            $clients = array();
+            $returned_clients = $GLOBALS['DB']->query("SELECT * FROM clients WHERE stylist_id = {$this->getId()};");
+            foreach($returned_clients as $client){
+                $id = $client['id'];
+                $name = $client['name'];
+                $stylist_id = $client['stylist_id'];
+                $new_client = new Client($id, $name, $stylist_id);
+                array_push($clients, $new_client);
+            }
+            return $clients;
+        }
+
         static function getAll()
         {
             $returned_stylists = $GLOBALS['DB']->query("SELECT * FROM stylists;");

@@ -5,6 +5,7 @@
     */
 
     require_once "src/Client.php";
+    require_once "src/Stylist.php";
 
     $server = 'mysql:host=localhost;dbname=hair_salon_test';
     $username = 'root';
@@ -16,21 +17,27 @@
         protected function tearDown()
         {
             Client::deleteAll();
+            Stylist::deleteAll();
         }
 
         function test_getId()
         {
             //Arrange
-            $id = 1;
+            $id = null;
+            $stylist_name = "gary";
+            $stylist = new Stylist ($id, $stylist_name);
+            $stylist->save();
+
             $name = "ally";
-            $stylist_id = 3;
+            $stylist_id = $stylist->getId();
             $client = new Client($id, $name, $stylist_id);
+            $client->save();
 
             //Act
             $result = $client->getId();
 
             //Assert
-            $this->assertEquals($id, $result);
+            $this->assertEquals(true, is_numeric($result));
 
         }
 
@@ -53,25 +60,34 @@
         function test_getStylistId()
         {
             //Arrange
-            $id = 1;
+            $id = null;
+            $stylist_name = "gary";
+            $stylist = new Stylist ($id, $stylist_name);
+            $stylist->save();
+
             $name = "ally";
-            $stylist_id = 3;
+            $stylist_id = $stylist->getId();
             $client = new Client($id, $name, $stylist_id);
+            $client->save();
 
             //Act
             $result = $client->getStylistId();
 
             //Assert
-            $this->assertEquals($stylist_id, $result);
+            $this->assertEquals(true, is_numeric($result));
 
         }
 
         function test_save()
         {
             //Arrange
-            $id = 1;
+            $id = null;
+            $stylist_name = "gary";
+            $stylist = new Stylist ($id, $stylist_name);
+            $stylist->save();
+
             $name = "ally";
-            $stylist_id = 3;
+            $stylist_id = $stylist->getId();
             $client = new Client($id, $name, $stylist_id);
             $client->save();
 
@@ -86,15 +102,18 @@
         function test_getAll()
         {
             //Arrange
-            $id = 1;
+            $id = null;
+            $stylist_name = "gary";
+            $stylist = new Stylist ($id, $stylist_name);
+            $stylist->save();
+
             $name = "ally";
-            $stylist_id = 3;
+            $stylist_id = $stylist->getId();
             $client = new Client($id, $name, $stylist_id);
             $client->save();
 
-            $id = 2;
             $name = "cally";
-            $stylist_id = 4;
+            $stylist_id = $stylist->getId();
             $client2 = new Client($id, $name, $stylist_id);
             $client2->save();
 
@@ -109,15 +128,18 @@
         function test_deleteAll()
         {
             //Arrange
-            $id = 1;
+            $id = null;
+            $stylist_name = "gary";
+            $stylist = new Stylist ($id, $stylist_name);
+            $stylist->save();
+
             $name = "ally";
-            $stylist_id = 3;
+            $stylist_id = $stylist->getId();
             $client = new Client($id, $name, $stylist_id);
             $client->save();
 
-            $id = 2;
             $name = "cally";
-            $stylist_id = 4;
+            $stylist_id = $stylist->getId();
             $client2 = new Client($id, $name, $stylist_id);
             $client2->save();
 
@@ -133,15 +155,18 @@
         function test_find()
         {
             //Arrange
-            $id = 1;
+            $id = null;
+            $stylist_name = "gary";
+            $stylist = new Stylist ($id, $stylist_name);
+            $stylist->save();
+
             $name = "ally";
-            $stylist_id = 3;
+            $stylist_id = $stylist->getId();
             $client = new Client($id, $name, $stylist_id);
             $client->save();
 
-            $id = 2;
             $name = "cally";
-            $stylist_id = 4;
+            $stylist_id = $stylist->getId();
             $client2 = new Client($id, $name, $stylist_id);
             $client2->save();
 
@@ -172,5 +197,27 @@
 
         }
 
+        function test_delete ()
+        {
+            //Arrange
+            $id = 1;
+            $name = "ally";
+            $stylist_id = 3;
+            $client = new Client($id, $name, $stylist_id);
+            $client->save();
+
+            $id = 2;
+            $name = "cally";
+            $stylist_id = 4;
+            $client2 = new Client($id, $name, $stylist_id);
+            $client2->save();
+
+            //Act
+            $client2->delete();
+
+            //Assert
+            $this->assertEquals([$client], Client::getAll());
+
+        }
     }
  ?>
