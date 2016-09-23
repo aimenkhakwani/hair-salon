@@ -83,5 +83,28 @@
 
         }
 
+        function test_getAll()
+        {
+            //Arrange
+            $id = 1;
+            $name = "ally";
+            $stylist_id = 3;
+            $client = new Client($id, $name, $stylist_id);
+            $client->save();
+
+            $id = 2;
+            $name = "cally";
+            $stylist_id = 4;
+            $client2 = new Client($id, $name, $stylist_id);
+            $client2->save();
+
+            //Act
+            $result = $client->getAll();
+
+            //Assert
+            $this->assertEquals([$client,$client2], $result);
+
+        }
+
     }
  ?>
