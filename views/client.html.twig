@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <title>Hair Salon</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Hair Salon</h1>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Update Client</h3>
+                    <form action="/updateClient/{{ client.getId }}" method="post">
+                        <input name="_method" type="hidden" value="patch">
+                        <input class="form-control" type="text" name="name" placeholder="Name" required>
+                        <br>
+                        <button type="submit" class="btn">Update Client</button>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <h2>Client Info</h2>
+                    <br>
+                    <h4>Name: {{ client.getName }}</h4>
+                    <h4>Stylist: {{ stylist.getName }}</h4>
+                </div>
+                <div class="col-md-4">
+                    <h3>Delete Client</h3>
+                    <form action="/deleteClient/{{ client.getId }}" method="post">
+                        <input name="_method" type="hidden" value="delete">
+                        <br>
+                        <button type="submit" class="btn">Delete Client</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

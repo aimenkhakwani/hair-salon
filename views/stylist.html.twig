@@ -18,22 +18,31 @@
                     <h3>Add a Client</h3>
                     <form action="/addClient" method="post">
                         <input class="form-control" type="text" name="name" placeholder="Name" required>
+                         <input id="stylist_id" value="{{ stylist.getId }}" type="hidden" name="stylist_id">
                         <br>
                         <button type="submit" class="btn">Add Client</button>
                     </form>
                 </div>
                 <div class="col-md-4">
                     <h3>{{ stylist.getName }}'s Clients</h3>
+                    {% if clients is not empty %}
+                        {% for client in clients %}
+                            <h4><a href="/getClient/{{ client.getId }}">{{client.getName}}</a></h4>
+                        {% endfor %}
+                        <form action="/deleteClients" method="post">
+                            <button type="submit" class="btn">Delete ALL Clients</button>
+                        </form>
+                    {% endif %}
                 </div>
                 <div class="col-md-4">
                     <h3>Update/Delete {{ stylist.getName }}</h3>
-                    <form action="/updateStylist" method="post">
+                    <form action="/updateStylist/{{ stylist.getId }}" method="post">
                         <input name="_method" type="hidden" value="patch">
                         <input class="form-control" type="text" name="name" placeholder="Name" required>
                         <br>
                         <button type="submit" class="btn">Update Stylist</button>
                     </form>
-                    <form action="/deleteStylist" method="post">
+                    <form action="/deleteStylist/{{ stylist.getId }}" method="post">
                         <input name="_method" type="hidden" value="delete">
                         <br>
                         <button type="submit" class="btn">Delete Stylist</button>
