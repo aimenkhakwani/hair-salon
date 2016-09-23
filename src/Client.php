@@ -9,7 +9,7 @@
         {
             $this->id = $id;
             $this->name = $name;
-            $this->stylist_id = $stylist_id
+            $this->stylist_id = $stylist_id;
         }
 
         function getId()
