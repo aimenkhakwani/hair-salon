@@ -25,11 +25,13 @@
                     {% if stylists is not empty %}
                         <h2>Current Stylists: </h2>
                         {% for stylist in stylists %}
-                            <h4> <a href="#">{{ stylist.getName }}</a></h4>
+                            <h4><a href="/getStylist/{{ stylist.getId }}">{{ stylist.getName }}</a></h4>
                         {% endfor %}
                         <form action="/deleteStylists" method="post">
                             <button type="submit" class="btn">Delete ALL Stylists</button>
                         </form>
+                    {% else %}
+                    <h2>Current Stylists: None </h2>
                     {% endif %}
                 </div>
             </div>

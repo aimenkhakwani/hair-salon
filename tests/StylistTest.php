@@ -112,21 +112,20 @@
         function test_find()
         {
             //Arrange
-            $id = 1;
+            $id = 2;
             $name = "sally";
             $stylist = new Stylist($id, $name);
             $stylist->save();
 
-            $id = 2;
             $name = "mandy";
             $stylist2 = new Stylist($id, $name);
             $stylist2->save();
 
             //Act
-            $result = Stylist::find($stylist->getId());
+            $result = Stylist::find($stylist2->getId());
 
             //Assert
-            $this->assertEquals($stylist, $result);
+            $this->assertEquals($stylist2, $result);
 
         }
 
