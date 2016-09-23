@@ -1,0 +1,20 @@
+body {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+}
+h1 {
+    
+}
+h2 {
+    margin-bottom: 5%;
+    font-size: 30px;
+}
+.content {
+    border: 1px dashed #000;
+    padding: 50px 30px;
+    margin: 3% 0%;
+}
+.header {
+    background-image: url(../salon.jpg);
+    min-height: 300px;
+}
