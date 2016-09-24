@@ -17,7 +17,8 @@ This is a dynamic website that demonstrates a MySQL one-to-many relationship. It
 * USE hair_salon;
 * CREATE TABLE stylists (id serial PRIMARY KEY, name VARCHAR (255));
 * DESCRIBE stylists;
-* (id serial PRIMARY KEY, name VARCHAR (255), stylist_id INT);
+* CREATE TABLE clients (id serial PRIMARY KEY, name VARCHAR (255), stylist_id INT);
+* DESCRIBE clients;
 * (started apache and copied database in phpmyadmin called hair_salon_test)
 * SHOW DATABASES;
 
