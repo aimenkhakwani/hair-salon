@@ -10,9 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
-        </div>
-        <h1>Hair Salon</h1>
+        <a href="/"><img src='/hair.jpg'></a><h1>Hair Salon</h1>
         <div class="content">
             <div class="row">
                 <div class="col-md-4">
@@ -28,7 +26,7 @@
                     <h3>Client Info</h3>
                     <br>
                     <h4>Name: {{ client.getName }}</h4>
-                    <h4>Stylist: {{ stylist.getName }}</h4>
+                    <h4><a href="/getStylist/{{ stylist.getId }}">Stylist: {{ stylist.getName }}</a></h4>
                 </div>
                 <div class="col-md-4">
                     <h3>Delete Client</h3>

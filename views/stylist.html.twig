@@ -10,9 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
-        </div>
-        <h1>Hair Salon</h1>
+        <a href="/"><img src='/hair.jpg'></a><h1>Hair Salon</h1>
         <div class="content">
             <div class="row">
                 <div class="col-md-4">
@@ -30,7 +28,7 @@
                         {% for client in clients %}
                             <h4><a href="/getClient/{{ client.getId }}">{{client.getName}}</a></h4>
                         {% endfor %}
-                        <form action="/deleteClients" method="post">
+                        <form action="/deleteClients{{ stylist.getId }}" method="post">
                             <button type="submit" class="btn">Delete ALL Clients</button>
                         </form>
                     {% endif %}
