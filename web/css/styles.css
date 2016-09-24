@@ -3,7 +3,9 @@ body {
     font-family: 'Lato', sans-serif;
 }
 h1 {
-    
+    font-size: 45px;
+    font-family: 'Lemonada', cursive;
+    color: #000;
 }
 h2 {
     margin-bottom: 5%;
@@ -14,7 +16,7 @@ h2 {
     padding: 50px 30px;
     margin: 3% 0%;
 }
-.header {
+/*.header {
     background-image: url(../salon.jpg);
     min-height: 300px;
-}
+}*/
