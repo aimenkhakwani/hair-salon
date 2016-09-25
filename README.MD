@@ -6,7 +6,7 @@
 
 ## Description
 
-This is a dynamic website that demonstrates a MySQL one-to-many relationship. It is geared towards hair solon owners. They can add stylists to the site, and for each stylist, add clients. The user can also update or delete both a stylist and clients (CRUD functionality).  
+This is a dynamic website that demonstrates a MySQL one-to-many relationship. It is geared towards hair solon owners. They can add stylists to the site, and for each stylist, add clients. The user can also update or delete both stylists and clients (CRUD functionality).  
 <img src="/web/img/screenshot.png" alt="a screenshot of the website">
 
 ## MySQL Commands
